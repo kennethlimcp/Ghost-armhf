@@ -11,6 +11,6 @@ Also, blog content is persisted by mounting a volume to the container and is ind
 ### Steps to update [GHOST](https://ghost.org) version
 - run `./update.sh`
 - run `docker build --tag kennethlimcp/ghost-armhf:v0.6.x .`
-- run `docker stop ghostblog; docker rm ghostblog; docker run -d --name ghostblog -p 80:2368 -e "NODE_ENV=production" -v /home/odroid/blog:/var/lib/ghost ghost`
+- run `docker stop ghostblog; docker rm ghostblog; docker run -d --name ghostblog -p 80:2368 -e "NODE_ENV=production" -v /home/odroid/blog:/var/lib/ghost kennethlimcp/ghost-armhf:latest`
 
 The eventual plan is for the container to sit behind NGINX and spin up a new container running the latest GHOST before stopping the old one. This will be a 0-downtime deployment goodness! :)
