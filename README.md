@@ -4,7 +4,7 @@ This runs on a [Odroid C1](http://www.hardkernel.com) and monitored using [Bound
 
 Actual blog is running at: http://kennethlimcp.no-ip.org
 
-The original [Dockerfile](https://github.com/docker-library/ghost) is modified and compiled on the **C!** itself using the armhf version of Ubuntu + some other fixes.
+The original [Dockerfile](https://github.com/docker-library/ghost) is modified and compiled on the **C1** itself using the armhf version of Ubuntu + some other fixes.
 
 Also, blog content is persisted by mounting a volume to the container and is independent of the container itself.
 
