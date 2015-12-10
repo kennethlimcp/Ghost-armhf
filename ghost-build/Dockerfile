@@ -23,16 +23,20 @@ WORKDIR $GHOST_SOURCE
 # Install Node
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN apt-get install -y nodejs
-RUN ln -s /usr/bin/nodejs /usr/bin/node
-RUN apt-get install -y npm
+#RUN ln -s /usr/bin/nodejs /usr/bin/node
+#RUN apt-get install -y npm
 
-ENV GHOST_VERSION 0.6.4
+ENV GHOST_VERSION 0.7.2
 
 RUN buildDeps=' \
+		node-gyp \
+		build-essential \
+		python-software-properties \
+		g++ \
                 gcc \
                 make \
                 python \
-                unzip \
+                unzip \ 
         ' \
         && set -x \
         && apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \

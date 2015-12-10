@@ -1,6 +1,6 @@
 # Ghost blog on Armhf
 
-This runs on a [Odroid C1](http://www.hardkernel.com) and monitored using [Boundary](https://boundary.com)
+This runs on a [Odroid C1](http://www.hardkernel.com) and monitored using [BMC Truesight](https://www.bmc.com)
 
 Actual blog is running at: http://kennethlimcp.no-ip.org
 
@@ -11,6 +11,19 @@ Also, blog content is persisted by mounting a volume to the container and is ind
 ### Steps to update [GHOST](https://ghost.org) version
 - run `./update.sh`
 - run `docker build --tag kennethlimcp/ghost-armhf:v0.6.x .`
-- run `docker stop ghostblog; docker rm ghostblog; docker run -d --name ghostblog -p 80:2368 -e "NODE_ENV=production" -v /home/odroid/blog:/var/lib/ghost kennethlimcp/ghost-armhf:latest`
+- run ./bin/launch-blog`
 
-The eventual plan is for the container to sit behind NGINX and spin up a new container running the latest GHOST before stopping the old one. This will be a 0-downtime deployment goodness! :)
+### Steps to launch blog with NGINX as the front-facing application
+
+- run `./bin/nginx-storage`
+- run `./bin/blog-nginx`
+- run `./bin/nginx`
+
+### Some plans
+
+- Currently the volumes path for the docker containers are hard-coded but I should probably change them to env var soon.
+- switch over to a paid domain name
+- use [letsencrypt](https://letsencrypt.org/) and turn on `https`
+- automate the building of a new ghost version and perform a deploy
+
+There still work to be done to spin up a new container running the latest GHOST before stopping the old one. This will be a 0-downtime deployment goodness! :)
