@@ -5,6 +5,7 @@ RUN groupadd user && useradd --create-home --home-dir /home/user -g user user
 RUN apt-get update && apt-get install -y \
 		ca-certificates \
 		wget \
+		curl \
 	--no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 # grab gosu for easy step-down from root
@@ -23,7 +24,7 @@ ENV GHOST_SOURCE /usr/src/ghost
 WORKDIR $GHOST_SOURCE
 
 # Install Node
-RUN curl -sL https://deb.nodesource.com/setup | bash -
+RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
 RUN apt-get install -y nodejs
 #RUN ln -s /usr/bin/nodejs /usr/bin/node
 #RUN apt-get install -y npm
@@ -31,24 +32,24 @@ RUN apt-get install -y nodejs
 ENV GHOST_VERSION 0.7.8
 
 RUN buildDeps=' \
-		node-gyp \
-		build-essential \
-		python-software-properties \
-		g++ \
-                gcc \
-                make \
-                python \
-                unzip \
-        ' \
-        && set -x \
-        && apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
-        && wget -O ghost.zip "https://ghost.org/archives/ghost-${GHOST_VERSION}.zip" \
-        && unzip ghost.zip \
-        && npm install --production \
-#       && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o  APT::AutoRemove::SuggestsImportant=f$
-        && rm ghost.zip \
-        && npm cache clean \
-        && rm -rf /tmp/npm*
+	node-gyp \
+	build-essential \
+	python-software-properties \
+	g++ \
+	gcc \
+	make \
+	python \
+	unzip \
+	' \
+	&& set -x \
+	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
+	&& wget -O ghost.zip "https://ghost.org/archives/ghost-${GHOST_VERSION}.zip" \
+	&& unzip ghost.zip \
+	&& npm install --production \
+	#       && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o  APT::AutoRemove::SuggestsImportant=false $buildDeps \
+	&& rm ghost.zip \
+	&& npm cache clean \
+	&& rm -rf /tmp/npm*
 
 ENV GHOST_CONTENT /var/lib/ghost
 RUN mkdir -p "$GHOST_CONTENT" && chown -R user:user "$GHOST_CONTENT"
