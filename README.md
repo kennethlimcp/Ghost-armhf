@@ -11,7 +11,7 @@ Also, blog content is persisted by mounting a volume to the container and is ind
 ### Steps to update [GHOST](https://ghost.org) version
 - run `./update.sh`
 - run `docker build --tag kennethlimcp/ghost-armhf:v0.6.x .`
-- run ./bin/launch-blog`
+- run `./bin/launch-blog`
 
 ### Steps to launch blog with NGINX as the front-facing application
 
