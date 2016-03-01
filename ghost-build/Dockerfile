@@ -46,7 +46,7 @@ RUN buildDeps=' \
 	&& wget -O ghost.zip "https://ghost.org/archives/ghost-${GHOST_VERSION}.zip" \
 	&& unzip ghost.zip \
 	&& npm install --production \
-	#       && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o  APT::AutoRemove::SuggestsImportant=false $buildDeps \
+	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o  APT::AutoRemove::SuggestsImportant=false $buildDeps \
 	&& rm ghost.zip \
 	&& npm cache clean \
 	&& rm -rf /tmp/npm*
