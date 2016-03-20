@@ -1,7 +1,7 @@
 docker run \
--v /home/odroid/nginx/logs:/var/log/nginx \
--v /home/odroid/nginx/certs:/etc/nginx/certs \
--v /home/odroid/nginx/sites-enabled:/etc/nginx/sites-enabled \
--v /home/odroid/nginx/nginx.conf:/etc/nginx/nginx.conf \
+-v /mnt/usbdrive/nginx/logs:/var/log/nginx \
+-v /mnt/usbdrive/nginx/certs:/etc/nginx/certs \
+-v /mnt/usbdrivenginx/sites-enabled:/etc/nginx/sites-enabled \
+-v /mnt/usbdrive/nginx/nginx.conf:/etc/nginx/nginx.conf \
 --name=nginx-storage \
 armv7/armhf-ubuntu

@@ -2,5 +2,5 @@ docker run \
 -d --restart=always \
 --name ghostblog \
 -e "NODE_ENV=production" \
--v /home/odroid/blog:/var/lib/ghost \
+-v /mnt/usbdrive:/var/lib/ghost \
 kennethlimcp/ghost-armhf:latest
