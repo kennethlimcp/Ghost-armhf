@@ -15,7 +15,7 @@ RUN buildDeps=' \
 	' \
 	&& set -x \
 	&& apk update \
-	&& add	bash nodejs \
+	&& apk add	bash nodejs \
 	&& apk add $buildDeps \
 	&& curl "https://ghost.org/archives/ghost-${GHOST_VERSION}.zip" > ghost.zip \
 	&& unzip ghost.zip \
