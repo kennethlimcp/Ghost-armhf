@@ -18,7 +18,7 @@ Also, blog content is persisted by mounting a volume to the container and is ind
 ### Steps to compile manually
 
 ```sh
-$ git clone http://github.com/kennethlimcp/Ghost-armhf.git
+$ git clone http://github.com/kennethlimcp/ghost-on-armhf.git
 $ cd ghost-build
 $ docker build --tag username/imagename:version .
 ```
