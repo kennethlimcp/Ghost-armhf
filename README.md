@@ -1,17 +1,28 @@
 # Ghost blog on Armhf
 
+### Introduction
+
 This runs on a [Odroid C1](http://www.hardkernel.com) and monitored using [BMC Truesight](https://www.bmc.com)
 
 Actual blog is running at: http://kennethlimcp.no-ip.org
 
 The original [Dockerfile](https://github.com/docker-library/ghost) is modified and compiled on the **C1** itself using the armhf version of Ubuntu + some other fixes.
 
+Currently, the docker image is built through Docker hub automated build to add trust for people to use it safely.
+
+The repo containing the Dockerfile is at https://github.com/kennethlimcp/armhf-ghost
+
+
 Also, blog content is persisted by mounting a volume to the container and is independent of the container itself.
 
-### Steps to update [GHOST](https://ghost.org) version
-- run `./update.sh`
-- run `docker build --tag kennethlimcp/ghost-armhf:v0.6.x .`
-- run `./bin/launch-blog`
+### Steps to compile manually
+
+```sh
+$ git clone http://github.com/kennethlimcp/Ghost-armhf.git
+$ cd ghost-build
+$ docker build --tag username/imagename:version .
+```
+
 
 ### Steps to launch blog with NGINX as the front-facing application
 

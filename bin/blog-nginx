@@ -3,4 +3,4 @@ docker run \
 --name ghostblog \
 -e "NODE_ENV=production" \
 -v /mnt/usbdrive:/var/lib/ghost \
-kennethlimcp/ghost-armhf:latest
+kennethlimcp/armhf-ghost:latest
