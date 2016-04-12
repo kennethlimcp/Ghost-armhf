@@ -1,4 +1,4 @@
-rootpath = "/mnt/usbdrive/nginx"
+rootpath="/mnt/usbdrive/nginx"
 
 docker run \
 -v $rootpath/logs:/var/log/nginx:ro \
