@@ -1,6 +1,6 @@
 #!/bin/bash
 
-datapath="/mnt/usbdrive"
+datapath="/mnt/usbdrive/blog"
 
 docker stop ghostblog;
 docker rm ghostblog;
