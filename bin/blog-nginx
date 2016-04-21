@@ -4,6 +4,6 @@ docker run \
 -d --restart=always \
 --name ghostblog \
 -e "NODE_ENV=production" \
--v /mnt/usbdrive:/var/lib/ghost \
+-v /mnt/usbdrive/blog:/var/lib/ghost \
 -m 256mb \
 kennethlimcp/armhf-ghost:latest
