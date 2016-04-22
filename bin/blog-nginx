@@ -7,7 +7,7 @@ docker rm ghostblog;
 docker run \
 --name ghostblog \
 -d --restart=always \
--m 256mb \
+-m 512mb \
 -e "NODE_ENV=production" \
 -v $datapath:/var/lib/ghost \
 kennethlimcp/armhf-ghost:latest
